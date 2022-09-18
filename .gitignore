@@ -3,3 +3,5 @@
 *.png
 *model_results
 __pycache__
+!/assets/three_hamburgers.jpg
+!/assets/image.jpg
