@@ -1,5 +1,6 @@
 # YoloV5 API
-
+![plot](./assets/three_hamburgers.JPG)
+![plot](./assets/image.JPG)
 ## Description
 
 This is a fork of the Yolov5 repository (https://github.com/ultralytics/yolov5), repurposed as a Flask app where you can upload one picture and get a prediction on it.
