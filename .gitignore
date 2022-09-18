@@ -1,0 +1,5 @@
+*venv
+*.jpg
+*.png
+*model_results
+__pycache__
