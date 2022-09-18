@@ -13,10 +13,6 @@ OUTPUT_FOLDER = './static/results/'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 
-source = "D:\\Python\\General\\03_Projects\\pytorch_detection\\foodie_detect\\images\\image.jpg"
-name = "name1"
-
-
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
@@ -33,7 +29,7 @@ app.secret_key = 'This is your secret key to utilize session in Flask'
 def healthy():
     return {"status" : "I am healthy"}
 
-@app.route("/test", methods=['GET', 'POST'])
+@app.route("/upload", methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         print("we are here")
