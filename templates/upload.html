@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <form method="POST" enctype="multipart/form-data" >
+    <h1>Welcome, Select the file you wish to upload for detection</h1>
+    <form method="POST" enctype="multipart/form-data">
         <input type="file" id="myFile" name="uploaded-file">
         <input type="submit" value="Submit">
     </form>
+    <div class="Example of results">
+        <h1>Example of previous results</h1>
+        <div class="previous_images">
+            <img src="/static/results/three_hamburgers.jpg">
+        </div>
 </body>
+
 </html>
