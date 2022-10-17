@@ -17,7 +17,10 @@
             </a>
         </button>
     </div>
-
+    <h1>Your results:</h1>
+    {% for object in detection_results %}
+    <h1>First item: {{object.class}} with confidence: {{object.conf}} </h1>
+    {% endfor %}
 </body>
 
 </html>

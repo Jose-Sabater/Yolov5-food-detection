@@ -2,7 +2,7 @@ import os
 from flask import Flask, request, redirect, url_for, render_template, session
 from werkzeug.utils import secure_filename
 from detect_experimentation import main
-
+from utils.map_results import classes
 
 UPLOAD_FOLDER = "./static/input_images/"
 OUTPUT_FOLDER = "./static/results/"
@@ -35,7 +35,17 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(UPLOAD_FOLDER, filename))
             session["filename"] = filename
-            main(source=os.path.join(UPLOAD_FOLDER, filename), name=filename)
+            results = main(
+                source=os.path.join(UPLOAD_FOLDER, filename), name=filename
+            ).tolist()
+            result_list = []
+            for i, values in enumerate(results):
+                mapped_dictionary = dict()
+                mapped_dictionary["class"] = classes(values[5])
+                mapped_dictionary["conf"] = round(values[4], 2)
+                result_list.append(mapped_dictionary)
+            print(result_list)
+            session["results"] = result_list
             return redirect(url_for("displayImage"))
         return render_template("upload.html")
     print("or here")
@@ -50,7 +60,11 @@ def displayImage():
     )
     print(img_file_path)
     # Display image in Flask application web page
-    return render_template("show.html", user_image=img_file_path)
+    return render_template(
+        "show.html",
+        user_image=img_file_path,
+        detection_results=session.get("results"),
+    )
 
 
 if __name__ == "__main__":
