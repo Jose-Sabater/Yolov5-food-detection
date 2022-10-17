@@ -12,7 +12,3 @@ def classes(in_result: float) -> str:
     # out_results = list(map(names.get, in_results))
     out_results = names[in_result]
     return out_results
-
-
-if __name__ == "__main__":
-    classes
